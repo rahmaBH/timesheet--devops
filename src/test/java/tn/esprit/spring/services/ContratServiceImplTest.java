@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ import tn.esprit.spring.entities.Contrat;
 public class ContratServiceImplTest {
 	@Autowired 
 IContratService cs;
-private static final Logger l = LogManager.getLogger(UserServiceImplTest.class);
+private static final Logger l = LogManager.getLogger(ContratServiceImplTest.class);
 	@Test
 	@Order(1)
 	 public void testRetrieveAllUser()
@@ -39,7 +40,7 @@ private static final Logger l = LogManager.getLogger(UserServiceImplTest.class);
 		SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
 		Date d =dateFormat.parse("2015-03-23");
 
-		Contrat c = new Contrat(d,"CDI",1.500f);
+		Contrat c = new Contrat(d,"CDI",1.80f);
 		Contrat contratAdded = cs.addContrat(c);
 
 	}
@@ -49,9 +50,9 @@ private static final Logger l = LogManager.getLogger(UserServiceImplTest.class);
 	public void testUpdateContrat() throws ParseException{
 		SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
 		Date d =dateFormat.parse("2021-03-24");
-		Contrat c = new Contrat(d,"CDD",1.600f);
+		Contrat c = new Contrat(2,d,"55",1.900f);
 		Contrat contratupdated = cs.updateContrat(c);
-		Assertions.assertEquals(9, contratupdated.getReference());
+		Assertions.assertEquals(2, contratupdated.getReference());
 
 	 
 	}
@@ -60,8 +61,8 @@ private static final Logger l = LogManager.getLogger(UserServiceImplTest.class);
 	@Order(4)
 	public void testDeleteUser() throws ParseException
 	{
-cs.deleteContrat("1");
-Assertions.assertNull(cs.retrieveContrat("10"));
+cs.deleteContrat("14");
+Assertions.assertNull(cs.retrieveContrat("14"));
 
 	 
 	}
