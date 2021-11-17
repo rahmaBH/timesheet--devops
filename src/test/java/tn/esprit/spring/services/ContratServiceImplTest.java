@@ -30,7 +30,7 @@ private static final Logger l = LogManager.getLogger(ContratServiceImplTest.clas
 	 public void testRetrieveAllUser()
 	{
 		List<Contrat> listContrats = cs.retrieveAllContrats();
-      // Assertions.assertEquals(2, listContrats.size());
+      Assertions.assertEquals(5, listContrats.size());
 	}
 	
 	@Test
@@ -50,9 +50,9 @@ private static final Logger l = LogManager.getLogger(ContratServiceImplTest.clas
 	public void testUpdateContrat() throws ParseException{
 		SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
 		Date d =dateFormat.parse("2021-03-24");
-		Contrat c = new Contrat(2,d,"55",1.900f);
+		Contrat c = new Contrat(3,d,"55",1.900f);
 		Contrat contratupdated = cs.updateContrat(c);
-		Assertions.assertEquals(2, contratupdated.getReference());
+		Assertions.assertEquals(3, contratupdated.getReference());
 
 	 
 	}
@@ -61,8 +61,8 @@ private static final Logger l = LogManager.getLogger(ContratServiceImplTest.clas
 	@Order(4)
 	public void testDeleteUser() throws ParseException
 	{
-//cs.deleteContrat("14");
-//Assertions.assertNull(cs.retrieveContrat("14"));
+cs.deleteContrat("2");
+Assertions.assertNull(cs.retrieveContrat("2"));
 
 	 
 	}
